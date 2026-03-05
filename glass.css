@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2930ff, #53b2cf);
+}
+
+.wrapper,
+.modal {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.wrapper {
+  width: 65vmin;
+  height: 70vmin;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.game-details {
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.play-board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.play-board .food {
+  background: #ff4d6d;
+  border-radius: 4px;
+}
+
+.play-board .head {
+  background: #4cc9f0;
+  border-radius: 4px;
+}
+
+.controls {
+  display: none;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.controls i {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1.3rem;
+  color: white;
+  width: calc(100% / 4);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.controls i:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+body.open .modal-background {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+
+  width: 320px;
+  padding: 30px;
+  text-align: center;
+
+  color: white;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+body.open .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.modal p {
+  margin-bottom: 20px;
+}
+
+.modal span {
+  margin-bottom: 10px;
+}
+
+.replay-button {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.replay-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 90vmin;
+    height: 115vmin;
+  }
+
+  .controls {
+    display: flex;
+  }
+}
